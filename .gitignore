@@ -1,3 +1,7 @@
 build/
 dist/
 
+/hftVSRMI_Interfaces/nbproject/private/
+/hftVSRMI_Client/nbproject/private/
+/hftVSRMI_DateClient/nbproject/private/
+/hftVSRMI_DateServer/nbproject/private/
