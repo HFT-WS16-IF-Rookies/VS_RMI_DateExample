@@ -21,17 +21,20 @@ public class DateServer extends UnicastRemoteObject implements IDateProvider
         return new Date();
     }
 
+    private static Registry reg;
+
     public static void main(String[] args)
     {
         try
         {
-            Registry vRegistry = LocateRegistry.getRegistry();
-            vRegistry.rebind(IDateProvider.class.getName(), new DateServer());
+            reg = LocateRegistry.createRegistry(1099);
+            reg.rebind(IDateProvider.class.getName(), new DateServer());
             System.out.println("DateServer successfully bound to Registry");
         }
         catch (RemoteException e)
         {
             e.printStackTrace();
+            System.exit(1);
         }
     }
 }
